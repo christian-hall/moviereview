@@ -7,11 +7,8 @@ create table movie (
     title			varchar(100)	not null,
     genre			varchar(100)	not null,
 	released		date			not null,
-    rating			varchar(5)		not null
-);
-
-create table score (
-	id				int				primary key auto_increment,
+    rating			varchar(5)		not null,
+    
     premise			int				not null,
     plotPace		int				not null,
     plotIntegrity	int				not null,
@@ -34,3 +31,7 @@ create table score (
     constraint costumeRange check (costume between 0 and 11),
     constraint specialEffectsRange check (specialEffects between 0 and 1)
 );
+    
+DROP USER IF EXISTS moviereview_user@localhost;
+CREATE USER moviereview_user@localhost IDENTIFIED BY 'sesame';
+GRANT SELECT, INSERT ON MovieReview.* TO rpg_user@localhost;
