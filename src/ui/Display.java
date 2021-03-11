@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Display {
-
-	public static void getIntro() {
-		System.out.println("------------ Christian's Movie Reviews ------------");
-		System.out.println("----------------------------------------version 1.0");
-		System.out.println();
-	}
+	final static int WIDTH = 50;
 
 	public static List<String> getMainMenu() {
 		List<String> mainMenu = new ArrayList<>();
@@ -29,14 +24,12 @@ public class Display {
 		exitMenu.add("N - NO");
 		return exitMenu;
 	}
-
-	public static String menuChoice(List<String> options, String title) {
-		// dynamically create a menu with a border and a prompt at the bottom
-		final int MAX_LENGTH = 50;
+	
+	public static void getIntro(String title, double version, String author) {
 		int idx = 0;
 		title = " " + title + " ";
-		while (title.length() <= MAX_LENGTH) {
-			idx++;
+		while (title.length() <= WIDTH) {
+			idx ++;
 			if (idx % 2 == 0) {
 				title = title + "_";
 			} else {
@@ -44,22 +37,18 @@ public class Display {
 			}
 		}
 		System.out.println(title);
-		for (String choice : options) {
-			choice = "| " + choice;
-			while (choice.length() < MAX_LENGTH) {
-				choice = choice + " ";
-			}
-			if (choice.length() <= MAX_LENGTH) {
-				choice = choice + "|";
-			}
-			System.out.println(choice);
+		String printversion = " version " + version;
+		while (printversion.length() <= WIDTH) {
+			printversion = "-" + printversion;
 		}
-		String closing = "-";
-		while (closing.length() <= MAX_LENGTH) {
-			closing = closing + "-";
+		System.out.println(printversion);
+		author = " " + author;
+		while (author.length() <= WIDTH) {
+			author = "-" + author;
 		}
-		System.out.println(closing);
-		return Console.getString("Enter selection: ", true);
+		System.out.println(author);
+		System.out.println();
 	}
+
 
 }

@@ -3,15 +3,15 @@ package ui;
 public class MovieReview {
 
 	public static void main(String[] args) {
-		Display.getIntro();
+		Display.getIntro("Subjective Movie Reviews", 1, "Christian Hall");
 		String quit = "N";
 		while (quit.equalsIgnoreCase("N")) {
 			String mainMenuChoice = " ";
 			while (!mainMenuChoice.equalsIgnoreCase("Q")) {
-				mainMenuChoice = Display.menuChoice(Display.getMainMenu(), "MAIN MENU");
+				mainMenuChoice = Console.menuChoice(Display.getMainMenu(), "MAIN MENU");
 			}
 			
-			quit = Display.menuChoice(Display.getExitMenu(), "REALLY QUIT?");
+			quit = Console.menuChoice(Display.getExitMenu(), "REALLY QUIT?");
 		}
 
 	}

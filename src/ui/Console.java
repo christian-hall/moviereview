@@ -92,6 +92,8 @@ public class Console {
 		}
 		return d;
 	}
+	
+	private static int WIDTH = 50;
 
 	public static double getDouble(String prompt, double min, double max) {
 		double d = 0;
@@ -108,5 +110,37 @@ public class Console {
 		}
 		return d;
 	}
+	
+	public static String menuChoice(List<String> options, String title) {
+		// dynamically creates a menu with a border and a prompt at the bottom
+		int idx = 0;
+		title = " " + title + " ";
+		while (title.length() <= WIDTH) {
+			idx ++;
+			if (idx % 2 == 0) {
+				title = title + "_";
+			} else {
+				title = "_" + title;
+			}
+		}
+		System.out.println(title);
+		for (String choice : options) {
+			choice = "| " + choice;
+			while (choice.length() < WIDTH) {
+				choice = choice + " ";
+			}
+			if (choice.length() == WIDTH) {
+				choice = choice + "|";
+			}
+			System.out.println(choice);
+		}
+		String closing = "-";
+		while (closing.length() <= WIDTH) {
+			closing = closing + "-";
+		}
+		System.out.println(closing);
+		return getString("Enter selection: ", true);
+	}
+
 
 }
