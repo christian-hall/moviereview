@@ -10,7 +10,7 @@ public class Display {
 		List<String> mainMenu = new ArrayList<>();
 		mainMenu.add("Z - LIST ALL MOVIES ALPHABETICALLY");
 		mainMenu.add("S - LIST ALL MOVIES BY SCORE");
-		mainMenu.add("G - LIST ALL MOVIES BY GRADE");
+		mainMenu.add("T - LIST TOP 10 MOVIES");
 		mainMenu.add("A - ADD A NEW MOVIE");
 		mainMenu.add("D - DELETE A MOVIE BY ID");
 		mainMenu.add("E - EDIT A MOVIE BY ID");
